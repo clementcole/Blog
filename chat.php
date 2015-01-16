@@ -129,19 +129,23 @@
 		mysql_connect('host', 'database', 'password') or die(1);
 		//Select database
 		mysql_select_db('borcsa9_database') or die(2);
-		//Check if message is too long
-		else if(strlen($message) > 255){
+		//Check if message is empty and send the error code
+		else if(strlen($message) < 1){
+			echo 3;
+		}
+		//Check if name is too long
+		else if(strlen($name) < 255){
 			echo 4;
 		}
 		//Check if name is empty
-		else if(strlen($name) < 1){
+		else if(strlen($name)<1){
 			echo 5;
 		}
 		//Check if name is too long
-		else if(strlen($name)<1){
-
+		else if (strlen($name) > 29){
+			echo 6;
 		}
-
+		
 
 
 
